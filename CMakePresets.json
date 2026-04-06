@@ -1,0 +1,52 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "brew-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "/opt/homebrew/opt/llvm/bin/clang++",
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_EXTENSIONS": "OFF",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+            "environment": {
+                "PATH": "/opt/homebrew/opt/llvm/bin:$penv{PATH}"
+            }
+        },
+        {
+            "name": "brew-debug",
+            "displayName": "Homebrew LLVM Debug",
+            "inherits": "brew-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "brew-release",
+            "displayName": "Homebrew LLVM Release",
+            "inherits": "brew-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "brew-debug",
+            "configurePreset": "brew-debug"
+        },
+        {
+            "name": "brew-release",
+            "configurePreset": "brew-release"
+        }
+    ]
+}

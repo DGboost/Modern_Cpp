@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug modern_cpp (brew-debug)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/brew-debug/modern_cpp",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "build (brew-debug)"
+        }
+    ]
+}

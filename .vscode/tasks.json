@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure (brew-debug)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "brew-debug"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build (brew-debug)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "brew-debug"
+            ],
+            "dependsOn": "configure (brew-debug)",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "run (brew-debug)",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/brew-debug/modern_cpp",
+            "dependsOn": "build (brew-debug)",
+            "problemMatcher": []
+        }
+    ]
+}
