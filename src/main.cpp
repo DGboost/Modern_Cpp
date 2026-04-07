@@ -1,10 +1,8 @@
 #include <iostream>
 
-int main() {
-  int a = 1;
-  int b = 2;
+int main()
+{
+    std::cout << "Hello, World!" << '\n';
 
-  std::cout << a << " " << b << '\n';
-
-  return 0;
+    return 0;
 }

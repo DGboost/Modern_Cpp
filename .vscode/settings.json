@@ -1,5 +1,7 @@
 {
     "cmake.configureOnOpen": false,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/brew-debug/compile_commands.json",
     "cmake.preferredGenerators": [
         "Ninja"
     ],
@@ -7,6 +9,7 @@
         "--background-index",
         "--header-insertion=never"
     ],
+    "clangd.compilationDatabasePath": "build/brew-debug",
     "editor.formatOnSave": true,
     "[cpp]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
