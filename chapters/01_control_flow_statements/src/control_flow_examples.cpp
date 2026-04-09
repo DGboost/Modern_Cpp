@@ -95,6 +95,26 @@ int sumAllScoresUsingWhile(const std::vector<int> &values)
     return sum_score;
 }
 
+int sumAllScoresUsingDoWhile(const std::vector<int> &values)
+{
+    int sum_score = 0;
+    std::size_t idx = 0;
+    std::size_t vector_size = values.size();
+
+    if (vector_size == 0)
+    {
+        return sum_score;
+    }
+
+    do
+    {
+        sum_score += values[idx];
+        ++idx;
+    } while (idx < vector_size);
+
+    return sum_score;
+}
+
 void run_control_flow_examples()
 {
     const std::vector<int> values{4, 8, 15, 0, 16, 23, 42};
@@ -105,4 +125,6 @@ void run_control_flow_examples()
               << sumAllScoresUsingFor(values) << '\n';
     std::cout << "while example, sum all scores -> "
               << sumAllScoresUsingWhile(values) << '\n';
+    std::cout << "do-while example, sum all scores -> "
+              << sumAllScoresUsingDoWhile(values) << '\n';
 }
