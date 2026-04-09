@@ -2,54 +2,107 @@
 
 #include <iostream>
 
-std::string classify_score(int score)
+std::string classifyScore(int score)
 {
-    if (score >= 90) {
+    if (score >= 90)
+    {
         return "A";
-    } else if (score >= 80) {
+    }
+    else if (score >= 80)
+    {
         return "B";
-    } else if (score >= 70) {
+    }
+    else if (score >= 70)
+    {
         return "C";
-    } else {
+    }
+    else
+    {
         return "F";
     }
 }
 
-std::string describe_command(int command)
+std::string classifyScore2(int command)
 {
-    switch (command) {
+    switch (command)
+    {
     case 1:
-        return "Start";
+        return "A";
     case 2:
-        return "Stop";
+        return "B";
     case 3:
-        return "Pause";
+        return "C";
+    case 4:
+        return "F";
     default:
         return "Unknown command";
     }
 }
 
-int sum_until_stop_value(const std::vector<int> &values, int stop_value)
+int sumScoreUntilStopValue(const std::vector<int> &values, int stop_value)
 {
-    int sum = 0;
+    int sum_score = 0;
+    std::size_t idx = 0;
+    std::size_t vector_size = values.size();
 
-    for (auto &value : values) {
-        if (value == stop_value) {
-            break;
-        }
-
-        sum += value;
+loop:
+    if (idx >= vector_size)
+    {
+        return done:
+    }
+    else if (sum_score == stop_value)
+    {
+        return done;
     }
 
-    return sum;
+    sum_score += values[idx];
+    ++idx;
+    goto loop;
+
+done:
+    return sum_score;
+}
+
+int sumAllScoresUsingFor(const std::vector<int> &values)
+{
+    int sum_score = 0;
+
+    for (int i = 0; i < values.size(); ++i)
+    {
+        sum_score += values[i];
+    }
+
+    // for (const auto & value : values)
+    // {
+    //     sum_score += value;
+    // }
+
+    return sum_score;
+}
+
+int sumAllScoresUsingWhile(const std::vector<int> &values)
+{
+    int sum_score = 0;
+    std::size_t idx = 0;
+    std::size_t vector_size = values.size();
+
+    while (idx < vector_size)
+    {
+        sum_score += values[idx];
+        ++idx;
+    }
+
+    return sum_score;
 }
 
 void run_control_flow_examples()
 {
     const std::vector<int> values{4, 8, 15, 0, 16, 23, 42};
 
-    std::cout << "if-else example, score 91 -> " << classify_score(91) << '\n';
-    std::cout << "switch example, command 2 -> " << describe_command(2) << '\n';
-    std::cout << "goto example, sum until 0 -> "
-              << sum_until_stop_value(values, 0) << '\n';
+    std::cout << "if-else example, score 91 -> " << classifyScore(91) << '\n';
+    std::cout << "switch example, command 2 -> " << classifyScore2(2) << '\n';
+    std::cout << "for example, sum all scores -> "
+              << sumAllScoresUsingFor(values) << '\n';
+    std::cout << "while example, sum all scores -> "
+              << sumAllScoresUsingWhile(values) << '\n';
 }

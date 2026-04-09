@@ -3,5 +3,7 @@ IndentWidth: 4
 BreakBeforeBraces: Custom
 AllowShortFunctionsOnASingleLine: None
 BraceWrapping:
+  AfterControlStatement: Always
   AfterFunction: true
+  BeforeElse: true
   SplitEmptyFunction: true
